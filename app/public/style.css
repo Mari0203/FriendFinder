@@ -1,0 +1,11 @@
+.jumbotron {
+    background-image: url();
+}
+
+.card-header {
+    padding: 30px;
+}
+.card-text {
+    font-size: 1.2rem;
+    color: rgb(3, 3, 112);
+}

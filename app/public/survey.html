@@ -231,7 +231,7 @@
                 </form>
                 </p>
                 <br>
-                <a href="#" class="btn btn-warning">Show me my new BFF</a>
+                <a href="#"><button class="btn btn-warning" id="submit">Show Me My BFF</button></a>
             </div>
         </div>
     </div>
@@ -239,6 +239,66 @@
     <div class="container">
         <a href="/api/friends"><i class="fa fa-users"></i> Friends List API</a>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="bestMatch" tabindex="-1" role="dialog" aria-labelledby="best-match" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="meet-match">Meet your Match!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="match-text"></h3>
+                    <img class='img-fluid' scr="" alt="no image available">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery scripts-->
+    <script>
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    parseInt($("#question1").val()),
+                    parseInt($("#question2").val()),
+                    parseInt($("#question3").val()),
+                    parseInt($("#question4").val()),
+                    parseInt($("#question5").val()),
+                    parseInt($("#question6").val()),
+                    parseInt($("#question7").val()),
+                    parseInt($("#question8").val()),
+                    parseInt($("#question9").val()),
+                    parseInt($("#question10").val())
+                ]
+            };
+            $.post("/api/friends", newFriend,
+                function (match) {
+                    if (match) {
+                        alert("Welcome to the friend-zone.");
+                        $("#match-text").text(match.name);
+                        $(".modal-body > img").attr("src", match.photo);
+                        $("#bestMatch").modal("show");
+
+                    }
+                    else {
+                        $("#match-text").text("Sorry, no match found...");
+                    };
+                }
+            );
+        });
+    </script>
+
 </body>
 
 </html>

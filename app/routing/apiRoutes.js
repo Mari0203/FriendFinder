@@ -3,6 +3,7 @@ console.log(friends);
 
 module.exports = function (app) {
 
+  // Get all friends  
   app.get("/api/friends", function (req, res) {
     return res.json(friends);
   });
@@ -36,6 +37,8 @@ module.exports = function (app) {
     });
 
     friends.push(user);
-    res.json(bestMatch); //return the just match not all friends
+
+    // Returns just the bestMatch (NOT the whole friends list)
+    res.json(bestMatch);
   });
 }

@@ -1,7 +1,12 @@
 #homeHeader {
     background-image: url("./images/bonfireAtBeach.jpg");
-    background-size: cover;
+    background-size: 100% 100%;
     color: antiquewhite;
+}
+
+#surveyHeader {
+    background-image: url("./images/peopleShadow.jpg");
+    background-size: 100% 100%;
 }
 
 .card-header {

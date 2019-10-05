@@ -1,18 +1,42 @@
-#homeHeader {
-    background-image: url("./images/bonfireAtBeach.jpg");
-    background-size: 100% 100%;
-    color: antiquewhite;
+html {
+  background: url(./images/palmTrees.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+img {
+  size: 100% 100%;
+}
+
+span {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(26, 25, 25);
+  font-size: 0.9em;
 }
 
 #surveyHeader {
-    background-image: url("./images/peopleShadow.jpg");
-    background-size: 100% 100%;
+  background-image: url("./images/groupHug.jpg");
+  background-size: cover;
+  color: grey;
 }
 
 .card-header {
-    padding: 30px;
+  padding: 30px;
 }
 .card-text {
-    font-size: 1.2rem;
-    color: rgb(3, 3, 112);
+  font-size: 1rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  color: rgb(3, 3, 112);
 }

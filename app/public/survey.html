@@ -23,7 +23,8 @@
             <h1 class="display-4">Survey Questions <i class="fa fa-file-text-o"></i></h1>
             <p class="lead">Take the Survey and Find your next BFF!</p>
             <br>
-            <a href="home.html"><button type="button" class="btn btn-primary center-block">Re-Start</button></a>
+            <br>
+            <a href="home.html"><button type="button" class="btn btn-info center-block">Re-Start</button></a>
         </div>
     </div>
     <div class="container">
@@ -35,13 +36,17 @@
             </h5>
 
             <div class="card-body">
-                
+
                 <form action="POST" class="border">
-                    <div class="form-group">
-                        <p>Name</p>
-                        <input type="text" class="form-control" id="userName">
-                        <p>Photo</p>
-                        <input type="text" class="form-control" id="userPhoto">
+                    <div class="container">
+                        <div class="form-group">
+                            <label for="nameInput">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="urlInput">Your Photo</label>
+                            <input type="text" class="form-control" placeholder="image URL">
+                        </div>
                     </div>
                 </form>
                 <br>
@@ -70,7 +75,7 @@
                 <p class="card-text">Toilet paper roll should be hang in "over position" so that the end of the roll
                     hangs off the exterior
                     --so you won't have to search of the end of the roll coming from the buttom in the "under position".
-                    Poeple who puts toilet paper rolls in "under position" need some serious re-education.</p>
+                    People who puts toilet paper rolls in "under position" need some serious re-education.</p>
 
                 <!-- Drop Down Answer Selection -->
                 <form class="form-inline">
@@ -163,9 +168,7 @@
 
                 <!-- QUESTION 7 -->
                 <h5 class="card-title">Question 7</h5>
-                <p class="card-text">You pump the gas as soon as the low-fuel warning lamp comes on no matter your
-                    driving
-                    plan for the next few days.</p>
+                <p class="card-text">You like music you can dance to.</p>
 
                 <!-- Drop Down Answer Selection -->
                 <form class="form-inline">
@@ -183,9 +186,8 @@
 
                 <!-- QUESTION 8 -->
                 <h5 class="card-title">Question 8</h5>
-                <p class="card-text">You pump the gas as soon as the low-fuel warning lamp comes on no matter your
-                    driving
-                    plan for the next few days.</p>
+                <p class="card-text">You'd rather go camping/hiking in the mountain than going swimming at the beach.
+                </p>
 
                 <!-- Drop Down Answer Selection -->
                 <form class="form-inline">
@@ -203,9 +205,7 @@
 
                 <!-- QUESTION 9 -->
                 <h5 class="card-title">Question 9</h5>
-                <p class="card-text">You pump the gas as soon as the low-fuel warning lamp comes on no matter your
-                    driving
-                    plan for the next few days.</p>
+                <p class="card-text">You don't like asking questions in front of people.</p>
 
                 <!-- Drop Down Answer Selection -->
                 <form class="form-inline">
@@ -223,9 +223,7 @@
 
                 <!-- QUESTION 10 -->
                 <h5 class="card-title">Question 10</h5>
-                <p class="card-text">You pump the gas as soon as the low-fuel warning lamp comes on no matter your
-                    driving
-                    plan for the next few days.</p>
+                <p class="card-text">Mushrooms go well with anything</p>
 
                 <!-- Drop Down Answer Selection -->
                 <form class="form-inline">
@@ -278,8 +276,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <!-- jQuery scripts-->
 
-   
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script>
         $("#submit").on("click", function (event) {
             // event.preventDefault();
@@ -287,16 +287,16 @@
                 name: $("#userName").val().trim(),
                 photo: $("#userPhoto").val().trim(),
                 scores: [
-                     $("#answerSelections1").val(),
-                     $("#answerSelections2").val(),
-                     $("#answerSelections3").val(),
-                     $("#answerSelections4").val(),
+                    $("#answerSelections1").val(),
+                    $("#answerSelections2").val(),
+                    $("#answerSelections3").val(),
+                    $("#answerSelections4").val(),
                     $("#answerSelections5").val(),
-                   $("#answerSelections6").val(),
-                  $("#answerSelections7").val(),
-                     $("#answerSelections8").val(),
+                    $("#answerSelections6").val(),
+                    $("#answerSelections7").val(),
+                    $("#answerSelections8").val(),
                     $("#answerSelections9").val(),
-                     $("#answerSelections10").val()
+                    $("#answerSelections10").val()
                 ]
             };
             $.post("/api/friends", newFriend).then(
@@ -307,8 +307,8 @@
                         $("#match-text").text(match.name);
                         $(".img-fluid").attr("src", match.photo);
                         $("#bestMatch").modal("show");
-                    
-                    
+
+
                     }
                     else {
                         $("#match-text").text("Sorry, no match found...");
